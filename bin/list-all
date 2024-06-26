@@ -8,4 +8,4 @@ tool=$(basename "$plugin_dir")
 
 source "${plugin_dir}/lib/utils.bash"
 
-list_all_versions "$tool"
+GHCUP_INSTALL_BASE_PREFIX="$(asdf_plugin_path)" list_all_versions "$tool"

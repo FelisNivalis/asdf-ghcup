@@ -13,7 +13,6 @@ ensure_ghcup() {
 		curl --proto '=https' --tlsv1.2 -sSf https://get-ghcup.haskell.org | env \
 			BOOTSTRAP_HASKELL_MINIMAL=1 \
 			BOOTSTRAP_HASKELL_NONINTERACTIVE=1 \
-			GHCUP_INSTALL_BASE_PREFIX="$(asdf_plugin_path)" \
 			sh >/dev/null
 	fi
 }
@@ -35,8 +34,8 @@ install_version() {
 	ensure_ghcup
 
 	if [[ $tool == "ghc" ]] || { [[ $tool == "hls" ]] && [[ $(ver "$version") -ge $(ver "1.7") ]]; }; then
-		GHCUP_INSTALL_BASE_PREFIX="$(asdf_plugin_path)" "$(ghcup_bin_dir)/ghcup" install "$tool" "$version" -i "$path"
+		"$(ghcup_bin_dir)/ghcup" install "$tool" "$version" -i "$path"
 	else
-		GHCUP_INSTALL_BASE_PREFIX="$(asdf_plugin_path)" "$(ghcup_bin_dir)/ghcup" install "$tool" "$version" -i "${path}/bin"
+		"$(ghcup_bin_dir)/ghcup" install "$tool" "$version" -i "${path}/bin"
 	fi
 }

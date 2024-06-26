@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+export CABAL_DIR="$ASDF_INSTALL_PATH/cabal"
+export STACK_ROOT="$ASDF_INSTALL_PATH/stack"

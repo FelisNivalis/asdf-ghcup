@@ -8,4 +8,4 @@ tool=$(basename "$plugin_dir")
 
 source "${plugin_dir}/lib/utils.bash"
 
-install_version "$tool" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
+GHCUP_INSTALL_BASE_PREFIX="$(asdf_plugin_path)" install_version "$tool" "$ASDF_INSTALL_VERSION" "$ASDF_INSTALL_PATH"
